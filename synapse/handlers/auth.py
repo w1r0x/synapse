@@ -589,7 +589,7 @@ class AuthHandler(BaseHandler):
 
                 if result and len(conn.response) == 1:
                     # found exactly one result
-                    user_dn = conn.response[0]['dn']
+                    user_dn = conn.response[0]['dn'].encode('utf-8')
                     logger.debug('ldap search found dn: %s', user_dn)
 
                     # unbind and reconnect, rebind with found dn
